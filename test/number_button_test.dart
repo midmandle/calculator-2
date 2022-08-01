@@ -34,7 +34,17 @@ void main() {
     await tester.pumpWidget(testableWidget);
     await tester.tap(find.text("2"));
 
-    verify(mockCalculatorViewModel.handleButtonPress());
+    verify(mockCalculatorViewModel.handleButtonPress(any));
+  });
+
+  testWidgets('report the value 2 when clicked', (WidgetTester tester) async {
+    final mockCalculatorViewModel = MockCalculatorViewModel();
+
+    final testableWidget = createTestWidget(NumberButton(value: "2", onClickHandler: mockCalculatorViewModel.handleButtonPress));
+    await tester.pumpWidget(testableWidget);
+    await tester.tap(find.text("2"));
+
+    verify(mockCalculatorViewModel.handleButtonPress("2"));
   });
 }
 
@@ -60,7 +70,7 @@ Widget createTestWidget(Widget widget) {
 }
 
 class CalculatorViewModel {
-  void handleButtonPress() {
+  void handleButtonPress(String value) {
 
   }
 }
