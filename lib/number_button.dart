@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 
 class NumberButton extends StatelessWidget {
   final String value;
-  const NumberButton({Key? key, required this.value}) : super(key: key);
+
+  final VoidCallback onClickHandler;
+  const NumberButton({Key? key, required this.value, required this.onClickHandler}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Text(value, textDirection: TextDirection.ltr);
+
+    return ElevatedButton(onPressed: onClickHandler,
+    child: Text(value, textDirection: TextDirection.ltr));
   }
 }
