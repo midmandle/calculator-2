@@ -7,6 +7,10 @@ class CalculatorViewModel {
       return;
     }
 
+    if (value == '+') {
+      return;
+    }
+
     _displayValue = _displayValue == '0' ? value : _displayValue += value;
   }
 }
