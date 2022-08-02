@@ -13,7 +13,6 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  Function(String value) placeholder = (value) {};
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class _CalculatorState extends State<Calculator> {
           children: [
             NumberButton(
               value: '/',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
           ],
         ),
@@ -48,7 +47,7 @@ class _CalculatorState extends State<Calculator> {
             ),
             NumberButton(
               value: '*',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
           ],
         ),
@@ -68,7 +67,7 @@ class _CalculatorState extends State<Calculator> {
             ),
             NumberButton(
               value: '-',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
           ],
         ),
@@ -88,7 +87,7 @@ class _CalculatorState extends State<Calculator> {
             ),
             NumberButton(
               value: '+',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
           ],
         ),
@@ -100,7 +99,7 @@ class _CalculatorState extends State<Calculator> {
             ),
             NumberButton(
               value: '=',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
           ],
         ),
