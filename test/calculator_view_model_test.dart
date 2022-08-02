@@ -127,4 +127,20 @@ void main() {
 
     expect(viewModel.displayValue, equals('5'));
   });
+
+  // test('handling equals operator with 2 + 4', () {
+  //   viewModel.handleButtonPress('2');
+  //   viewModel.handleButtonPress('+');
+  //   viewModel.handleButtonPress('4');
+  //   viewModel.handleButtonPress('=');
+  //
+  //   expect(viewModel.displayValue, equals('6'));
+  // });
+
+  test('handling 1 +', () {
+    viewModel.handleButtonPress('1');
+    viewModel.handleButtonPress('+');
+
+    expect(viewModel.displayValue, equals('1+'));
+  });
 }
