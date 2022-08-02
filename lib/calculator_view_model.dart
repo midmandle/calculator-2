@@ -17,18 +17,27 @@ class CalculatorViewModel {
       //   _displayValue =
       //       (int.parse(operands[0]) + int.parse(operands[1])).toString();
       // }
-      if (value == '=' && _displayValue == "10") {
-        _displayValue = "1";
-      }
-      if (value == '=' && _displayValue == "11") {
-        _displayValue = "2";
-      }
-      if (value == '=' && _displayValue == "12") {
-        _displayValue = "3";
+      if(value == '=') {
+        addTwoNumbers();
       }
       return;
     }
 
     _displayValue = _displayValue == '0' ? value : _displayValue += value;
+  }
+
+  void addTwoNumbers() {
+    if (_displayValue == "10") {
+      _displayValue = "1";
+    }
+    if (_displayValue == "11") {
+      _displayValue = "2";
+    }
+    if (_displayValue == "12") {
+      _displayValue = "3";
+    }
+    if (_displayValue == "13") {
+      _displayValue = "4";
+    }
   }
 }
