@@ -82,4 +82,15 @@ void main() {
 
         expect(viewModel.displayValue, equals('1'));
       });
+
+  test(
+      'handling equals operator with 1 + 0',
+          () {
+        viewModel.handleButtonPress('1');
+        viewModel.handleButtonPress('+');
+        viewModel.handleButtonPress('0');
+        viewModel.handleButtonPress('=');
+
+        expect(viewModel.displayValue, equals('1'));
+      });
 }
