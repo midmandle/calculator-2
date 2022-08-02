@@ -19,6 +19,17 @@ void main() {
     expect(find.text('8'), findsOneWidget);
     expect(find.text('9'), findsOneWidget);
   });
+
+  testWidgets('Display operator buttons', (WidgetTester tester) async {
+    final testableWidget = createTestWidget(const Calculator());
+    await tester.pumpWidget(testableWidget);
+
+    expect(find.text('+'), findsOneWidget);
+    expect(find.text('-'), findsOneWidget);
+    expect(find.text('/'), findsOneWidget);
+    expect(find.text('*'), findsOneWidget);
+    expect(find.text('='), findsOneWidget);
+  });
 }
 
 Widget createTestWidget(Widget widget) {

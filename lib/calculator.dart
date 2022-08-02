@@ -18,6 +18,14 @@ class _CalculatorState extends State<Calculator> {
         Row(
           children: [
             NumberButton(
+              value: '/',
+              onClickHandler: placeholder,
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            NumberButton(
               value: '7',
               onClickHandler: placeholder,
             ),
@@ -27,6 +35,10 @@ class _CalculatorState extends State<Calculator> {
             ),
             NumberButton(
               value: '9',
+              onClickHandler: placeholder,
+            ),
+            NumberButton(
+              value: '*',
               onClickHandler: placeholder,
             ),
           ],
@@ -45,6 +57,10 @@ class _CalculatorState extends State<Calculator> {
               value: '6',
               onClickHandler: placeholder,
             ),
+            NumberButton(
+              value: '-',
+              onClickHandler: placeholder,
+            ),
           ],
         ),
         Row(
@@ -61,12 +77,20 @@ class _CalculatorState extends State<Calculator> {
               value: '3',
               onClickHandler: placeholder,
             ),
+            NumberButton(
+              value: '+',
+              onClickHandler: placeholder,
+            ),
           ],
         ),
         Row(
           children: [
             NumberButton(
               value: '0',
+              onClickHandler: placeholder,
+            ),
+            NumberButton(
+              value: '=',
               onClickHandler: placeholder,
             ),
           ],
