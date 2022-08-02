@@ -93,4 +93,15 @@ void main() {
 
         expect(viewModel.displayValue, equals('1'));
       });
+
+  test(
+      'handling equals operator with 1 + 1',
+          () {
+        viewModel.handleButtonPress('1');
+        viewModel.handleButtonPress('+');
+        viewModel.handleButtonPress('1');
+        viewModel.handleButtonPress('=');
+
+        expect(viewModel.displayValue, equals('2'));
+      });
 }
