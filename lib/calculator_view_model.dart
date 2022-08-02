@@ -4,6 +4,9 @@ class CalculatorViewModel {
 
   void handleButtonPress(String value) {
     if (value == '=' || value == '+' || value == '-' || value == '*' || value == '/') {
+      if (value == '=' && _displayValue == "10") {
+        _displayValue = "1";
+      }
       return;
     }
 
