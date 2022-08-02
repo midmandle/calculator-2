@@ -1,8 +1,12 @@
 import 'package:calculator_2/number_button.dart';
 import 'package:flutter/material.dart';
 
+import 'calculator_view_model.dart';
+
 class Calculator extends StatefulWidget {
-  const Calculator({Key? key}) : super(key: key);
+  final CalculatorViewModel viewModel;
+
+  const Calculator({Key? key, required this.viewModel}) : super(key: key);
 
   @override
   State<Calculator> createState() => _CalculatorState();
@@ -15,6 +19,11 @@ class _CalculatorState extends State<Calculator> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // Row(
+        //   children: [
+        //     Text("11", textDirection: TextDirection.ltr)
+        //   ],
+        // ),
         Row(
           children: [
             NumberButton(
@@ -98,8 +107,4 @@ class _CalculatorState extends State<Calculator> {
       ],
     );
   }
-}
-
-class CalculatorViewModel {
-  void handleButtonPress(String value) {}
 }

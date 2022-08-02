@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets("Pressing 1 + 1 displays a 2", (WidgetTester tester) async {
+  testWidgets("Pressing 5 + 6 displays a 11", (WidgetTester tester) async {
     Widget testableWidget = createTestWidget(const Calculator());
     await tester.pumpWidget(testableWidget);
 
-    await tester.tap(find.text("1"));
+    await tester.tap(find.text("5"));
     await tester.tap(find.text("+"));
-    await tester.tap(find.text("1"));
+    await tester.tap(find.text("6"));
     await tester.tap(find.text("="));
 
-    expect(find.text("2"), findsOneWidget);
+    expect(find.text("11"), findsOneWidget);
   });
 }
 

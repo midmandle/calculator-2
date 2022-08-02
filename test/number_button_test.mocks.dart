@@ -2,9 +2,8 @@
 // in calculator_2/test/number_button_test.dart.
 // Do not manually edit this file.
 
+import 'package:calculator_2/calculator_view_model.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-
-import 'package:calculator_2/calculator.dart' as _i2;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

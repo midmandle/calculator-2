@@ -1,11 +1,18 @@
 import 'package:calculator_2/calculator.dart';
+import 'package:calculator_2/calculator_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 
-//@GenerateMocks([CalculatorViewModel])
+import 'number_button_test.mocks.dart';
+
+@GenerateMocks([CalculatorViewModel])
 void main() {
   testWidgets('Display buttons for numbers 0 - 9', (WidgetTester tester) async {
-    final testableWidget = createTestWidget(const Calculator());
+    var mockedCalculatorViewModel = MockCalculatorViewModel();
+    final testableWidget = createTestWidget(Calculator(
+        viewModel: mockedCalculatorViewModel));
     await tester.pumpWidget(testableWidget);
 
     expect(find.text('0'), findsOneWidget);
@@ -21,7 +28,9 @@ void main() {
   });
 
   testWidgets('Display operator buttons', (WidgetTester tester) async {
-    final testableWidget = createTestWidget(const Calculator());
+    var mockedCalculatorViewModel = MockCalculatorViewModel();
+    final testableWidget = createTestWidget(Calculator(
+        viewModel: mockedCalculatorViewModel));
     await tester.pumpWidget(testableWidget);
 
     expect(find.text('+'), findsOneWidget);
@@ -29,6 +38,18 @@ void main() {
     expect(find.text('/'), findsOneWidget);
     expect(find.text('*'), findsOneWidget);
     expect(find.text('='), findsOneWidget);
+  });
+
+  testWidgets('Display the result of a calculation', (WidgetTester tester) async {
+
+    var mockedCalculatorViewModel = MockCalculatorViewModel();
+    when(mockedCalculatorViewModel.result).thenReturn(11);
+
+    final testableWidget = createTestWidget(Calculator(
+        viewModel: mockedCalculatorViewModel));
+    await tester.pumpWidget(testableWidget);
+
+    expect(find.text("11"), findsOneWidget);
   });
 }
 
