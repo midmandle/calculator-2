@@ -118,4 +118,13 @@ void main() {
 
     expect(viewModel.displayValue, equals('4'));
   });
+
+  test('handling equals operator with 1 + 4', () {
+    viewModel.handleButtonPress('1');
+    viewModel.handleButtonPress('+');
+    viewModel.handleButtonPress('4');
+    viewModel.handleButtonPress('=');
+
+    expect(viewModel.displayValue, equals('5'));
+  });
 }
