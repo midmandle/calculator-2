@@ -12,7 +12,7 @@ import 'calculator_test.mocks.dart';
 void main() {
   testWidgets('Display buttons for numbers 0 - 9', (WidgetTester tester) async {
     var mockedCalculatorViewModel = MockCalculatorViewModel();
-    when(mockedCalculatorViewModel.result).thenReturn('0');
+    when(mockedCalculatorViewModel.displayValue).thenReturn('0');
 
     final testableWidget =
         createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
@@ -33,7 +33,7 @@ void main() {
 
   testWidgets('Display operator buttons', (WidgetTester tester) async {
     var mockedCalculatorViewModel = MockCalculatorViewModel();
-    when(mockedCalculatorViewModel.result).thenReturn('0');
+    when(mockedCalculatorViewModel.displayValue).thenReturn('0');
 
     final testableWidget =
         createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
@@ -49,7 +49,7 @@ void main() {
   testWidgets('Display the result of a calculation',
       (WidgetTester tester) async {
     var mockedCalculatorViewModel = MockCalculatorViewModel();
-    when(mockedCalculatorViewModel.result).thenReturn('12');
+    when(mockedCalculatorViewModel.displayValue).thenReturn('12');
 
     final testableWidget =
         createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
@@ -59,31 +59,31 @@ void main() {
   });
 
   testWidgets('Clicking number 1 adds it to the calculation',
-          (WidgetTester tester) async {
-        var mockedCalculatorViewModel = MockCalculatorViewModel();
-        when(mockedCalculatorViewModel.result).thenReturn('0');
+      (WidgetTester tester) async {
+    var mockedCalculatorViewModel = MockCalculatorViewModel();
+    when(mockedCalculatorViewModel.displayValue).thenReturn('0');
 
-        final testableWidget =
+    final testableWidget =
         createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
-        await tester.pumpWidget(testableWidget);
+    await tester.pumpWidget(testableWidget);
 
-        await tester.tap(find.text('1'));
+    await tester.tap(find.text('1'));
 
-        verify(mockedCalculatorViewModel.handleButtonPress('1'));
+    verify(mockedCalculatorViewModel.handleButtonPress('1'));
   });
 
   testWidgets('Clicking minus operator adds it to the calculation',
-          (WidgetTester tester) async {
-        var mockedCalculatorViewModel = MockCalculatorViewModel();
-        when(mockedCalculatorViewModel.result).thenReturn('0');
+      (WidgetTester tester) async {
+    var mockedCalculatorViewModel = MockCalculatorViewModel();
+    when(mockedCalculatorViewModel.displayValue).thenReturn('0');
 
-        final testableWidget =
+    final testableWidget =
         createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
-        await tester.pumpWidget(testableWidget);
+    await tester.pumpWidget(testableWidget);
 
-        await tester.tap(find.text('-'));
+    await tester.tap(find.text('-'));
 
-        verify(mockedCalculatorViewModel.handleButtonPress('-'));
+    verify(mockedCalculatorViewModel.handleButtonPress('-'));
   });
 }
 

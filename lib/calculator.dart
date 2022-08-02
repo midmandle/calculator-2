@@ -13,14 +13,14 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Row(
           children: [
-            Text(widget.viewModel.result, textDirection: TextDirection.ltr)
+            Text(widget.viewModel.displayValue,
+                textDirection: TextDirection.ltr)
           ],
         ),
         Row(

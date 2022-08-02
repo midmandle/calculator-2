@@ -1,4 +1,8 @@
 class CalculatorViewModel {
-  get result => '0';
-  void handleButtonPress(String value) {}
+  String _displayValue = '0';
+  get displayValue => _displayValue;
+
+  void handleButtonPress(String value) {
+    _displayValue = value;
+  }
 }
