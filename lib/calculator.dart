@@ -36,15 +36,15 @@ class _CalculatorState extends State<Calculator> {
           children: [
             NumberButton(
               value: '7',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
             NumberButton(
               value: '8',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
             NumberButton(
               value: '9',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
             NumberButton(
               value: '*',
@@ -56,15 +56,15 @@ class _CalculatorState extends State<Calculator> {
           children: [
             NumberButton(
               value: '4',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
             NumberButton(
               value: '5',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
             NumberButton(
               value: '6',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
             NumberButton(
               value: '-',
@@ -76,15 +76,15 @@ class _CalculatorState extends State<Calculator> {
           children: [
             NumberButton(
               value: '1',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
             NumberButton(
               value: '2',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
             NumberButton(
               value: '3',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
             NumberButton(
               value: '+',
@@ -96,7 +96,7 @@ class _CalculatorState extends State<Calculator> {
           children: [
             NumberButton(
               value: '0',
-              onClickHandler: placeholder,
+              onClickHandler: widget.viewModel.handleButtonPress,
             ),
             NumberButton(
               value: '=',

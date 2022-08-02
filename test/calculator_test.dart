@@ -1,5 +1,6 @@
 import 'package:calculator_2/calculator.dart';
 import 'package:calculator_2/calculator_view_model.dart';
+import 'package:calculator_2/number_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -11,11 +12,14 @@ import 'calculator_test.mocks.dart';
 void main() {
   testWidgets('Display buttons for numbers 0 - 9', (WidgetTester tester) async {
     var mockedCalculatorViewModel = MockCalculatorViewModel();
+    when(mockedCalculatorViewModel.result).thenReturn('0');
+
     final testableWidget =
         createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
     await tester.pumpWidget(testableWidget);
 
-    expect(find.text('0'), findsOneWidget);
+    var zeroButton = find.widgetWithText(NumberButton, '0');
+    expect(zeroButton, findsOneWidget);
     expect(find.text('1'), findsOneWidget);
     expect(find.text('2'), findsOneWidget);
     expect(find.text('3'), findsOneWidget);
@@ -29,6 +33,8 @@ void main() {
 
   testWidgets('Display operator buttons', (WidgetTester tester) async {
     var mockedCalculatorViewModel = MockCalculatorViewModel();
+    when(mockedCalculatorViewModel.result).thenReturn('0');
+
     final testableWidget =
         createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
     await tester.pumpWidget(testableWidget);
@@ -64,7 +70,21 @@ void main() {
         await tester.tap(find.text('1'));
 
         verify(mockedCalculatorViewModel.handleButtonPress('1'));
-      });
+  });
+
+  testWidgets('Clicking minus operator adds it to the calculation',
+          (WidgetTester tester) async {
+        var mockedCalculatorViewModel = MockCalculatorViewModel();
+        when(mockedCalculatorViewModel.result).thenReturn('0');
+
+        final testableWidget =
+        createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
+        await tester.pumpWidget(testableWidget);
+
+        await tester.tap(find.text('-'));
+
+        verify(mockedCalculatorViewModel.handleButtonPress('-'));
+  });
 }
 
 Widget createTestWidget(Widget widget) {
