@@ -23,6 +23,9 @@ class CalculatorViewModel {
       if (value == '=' && _displayValue == "11") {
         _displayValue = "2";
       }
+      if (value == '=' && _displayValue == "12") {
+        _displayValue = "3";
+      }
       return;
     }
 

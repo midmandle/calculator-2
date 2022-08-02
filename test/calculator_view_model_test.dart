@@ -109,4 +109,13 @@ void main() {
 
     expect(viewModel.displayValue, equals('3'));
   });
+
+  test('handling equals operator with 1 + 3', () {
+    viewModel.handleButtonPress('1');
+    viewModel.handleButtonPress('+');
+    viewModel.handleButtonPress('3');
+    viewModel.handleButtonPress('=');
+
+    expect(viewModel.displayValue, equals('4'));
+  });
 }
