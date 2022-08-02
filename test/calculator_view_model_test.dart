@@ -28,12 +28,14 @@ void main() {
   });
 
   test('handling an equals operator should evaluate the calculation', () {
-        viewModel.handleButtonPress('=');
+    viewModel.handleButtonPress('=');
 
-        expect(viewModel.displayValue, equals('0'));
+    expect(viewModel.displayValue, equals('0'));
   });
 
-  test('handling an equals operator with a single number should evaluate the calculation', () {
+  test(
+      'handling an equals operator with a single number should evaluate the calculation',
+      () {
     viewModel.handleButtonPress('1');
     viewModel.handleButtonPress('+');
     viewModel.handleButtonPress('=');
@@ -41,9 +43,31 @@ void main() {
     expect(viewModel.displayValue, equals('1'));
   });
 
-  test('handling an minus operator with a single number should evaluate the calculation', () {
+  test(
+      'handling an minus operator with a single number should evaluate the calculation',
+      () {
     viewModel.handleButtonPress('1');
     viewModel.handleButtonPress('-');
+    viewModel.handleButtonPress('=');
+
+    expect(viewModel.displayValue, equals('1'));
+  });
+
+  test(
+      'handling a minus operator with a single number should evaluate the calculation',
+      () {
+    viewModel.handleButtonPress('1');
+    viewModel.handleButtonPress('-');
+    viewModel.handleButtonPress('=');
+
+    expect(viewModel.displayValue, equals('1'));
+  });
+
+  test(
+      'handling a multiply operator with a single number should evaluate the calculation',
+      () {
+    viewModel.handleButtonPress('1');
+    viewModel.handleButtonPress('*');
     viewModel.handleButtonPress('=');
 
     expect(viewModel.displayValue, equals('1'));

@@ -3,11 +3,7 @@ class CalculatorViewModel {
   get displayValue => _displayValue;
 
   void handleButtonPress(String value) {
-    if(value == '=') {
-      return;
-    }
-
-    if (value == '+') {
+    if (value == '=' || value == '+' || value == '-') {
       return;
     }
 
