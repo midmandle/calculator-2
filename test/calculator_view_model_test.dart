@@ -75,33 +75,38 @@ void main() {
 
   test(
       'handling a divide operator with a single number should evaluate the calculation',
-          () {
-        viewModel.handleButtonPress('1');
-        viewModel.handleButtonPress('/');
-        viewModel.handleButtonPress('=');
+      () {
+    viewModel.handleButtonPress('1');
+    viewModel.handleButtonPress('/');
+    viewModel.handleButtonPress('=');
 
-        expect(viewModel.displayValue, equals('1'));
-      });
+    expect(viewModel.displayValue, equals('1'));
+  });
 
-  test(
-      'handling equals operator with 1 + 0',
-          () {
-        viewModel.handleButtonPress('1');
-        viewModel.handleButtonPress('+');
-        viewModel.handleButtonPress('0');
-        viewModel.handleButtonPress('=');
+  test('handling equals operator with 1 + 0', () {
+    viewModel.handleButtonPress('1');
+    viewModel.handleButtonPress('+');
+    viewModel.handleButtonPress('0');
+    viewModel.handleButtonPress('=');
 
-        expect(viewModel.displayValue, equals('1'));
-      });
+    expect(viewModel.displayValue, equals('1'));
+  });
 
-  test(
-      'handling equals operator with 1 + 1',
-          () {
-        viewModel.handleButtonPress('1');
-        viewModel.handleButtonPress('+');
-        viewModel.handleButtonPress('1');
-        viewModel.handleButtonPress('=');
+  test('handling equals operator with 1 + 1', () {
+    viewModel.handleButtonPress('1');
+    viewModel.handleButtonPress('+');
+    viewModel.handleButtonPress('1');
+    viewModel.handleButtonPress('=');
 
-        expect(viewModel.displayValue, equals('2'));
-      });
+    expect(viewModel.displayValue, equals('2'));
+  });
+
+  test('handling equals operator with 1 + 2', () {
+    viewModel.handleButtonPress('1');
+    viewModel.handleButtonPress('+');
+    viewModel.handleButtonPress('2');
+    viewModel.handleButtonPress('=');
+
+    expect(viewModel.displayValue, equals('3'));
+  });
 }
