@@ -1,4 +1,4 @@
 class CalculatorViewModel {
-  get result => null;
+  get result => '0';
   void handleButtonPress(String value) {}
 }

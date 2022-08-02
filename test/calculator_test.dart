@@ -51,6 +51,20 @@ void main() {
 
     expect(find.text('12'), findsOneWidget);
   });
+
+  testWidgets('Clicking number 1 adds it to the calculation',
+          (WidgetTester tester) async {
+        var mockedCalculatorViewModel = MockCalculatorViewModel();
+        when(mockedCalculatorViewModel.result).thenReturn('0');
+
+        final testableWidget =
+        createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
+        await tester.pumpWidget(testableWidget);
+
+        await tester.tap(find.text('1'));
+
+        verify(mockedCalculatorViewModel.handleButtonPress('1'));
+      });
 }
 
 Widget createTestWidget(Widget widget) {
