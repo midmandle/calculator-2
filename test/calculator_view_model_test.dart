@@ -25,4 +25,14 @@ void main() {
 
     expect(viewModel.displayValue, equals('34'));
   });
+
+  test(
+      'handling an equals operator should evaluate the calculation',
+          () {
+        final viewModel = CalculatorViewModel();
+
+        viewModel.handleButtonPress('=');
+
+        expect(viewModel.displayValue, equals('0'));
+      });
 }
