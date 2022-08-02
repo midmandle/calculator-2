@@ -19,11 +19,11 @@ class _CalculatorState extends State<Calculator> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Row(
-        //   children: [
-        //     Text("11", textDirection: TextDirection.ltr)
-        //   ],
-        // ),
+        Row(
+          children: [
+            Text(widget.viewModel.result, textDirection: TextDirection.ltr)
+          ],
+        ),
         Row(
           children: [
             NumberButton(

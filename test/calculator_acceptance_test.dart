@@ -1,10 +1,14 @@
 import 'package:calculator_2/calculator.dart';
+import 'package:calculator_2/calculator_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets("Pressing 5 + 6 displays a 11", (WidgetTester tester) async {
-    Widget testableWidget = createTestWidget(const Calculator());
+    final viewModel = CalculatorViewModel();
+    Widget testableWidget = createTestWidget(Calculator(
+      viewModel: viewModel,
+    ));
     await tester.pumpWidget(testableWidget);
 
     await tester.tap(find.text("5"));

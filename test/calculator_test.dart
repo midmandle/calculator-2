@@ -5,14 +5,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'number_button_test.mocks.dart';
+import 'calculator_test.mocks.dart';
 
 @GenerateMocks([CalculatorViewModel])
 void main() {
   testWidgets('Display buttons for numbers 0 - 9', (WidgetTester tester) async {
     var mockedCalculatorViewModel = MockCalculatorViewModel();
-    final testableWidget = createTestWidget(Calculator(
-        viewModel: mockedCalculatorViewModel));
+    final testableWidget =
+        createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
     await tester.pumpWidget(testableWidget);
 
     expect(find.text('0'), findsOneWidget);
@@ -29,8 +29,8 @@ void main() {
 
   testWidgets('Display operator buttons', (WidgetTester tester) async {
     var mockedCalculatorViewModel = MockCalculatorViewModel();
-    final testableWidget = createTestWidget(Calculator(
-        viewModel: mockedCalculatorViewModel));
+    final testableWidget =
+        createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
     await tester.pumpWidget(testableWidget);
 
     expect(find.text('+'), findsOneWidget);
@@ -40,16 +40,16 @@ void main() {
     expect(find.text('='), findsOneWidget);
   });
 
-  testWidgets('Display the result of a calculation', (WidgetTester tester) async {
-
+  testWidgets('Display the result of a calculation',
+      (WidgetTester tester) async {
     var mockedCalculatorViewModel = MockCalculatorViewModel();
-    when(mockedCalculatorViewModel.result).thenReturn(11);
+    when(mockedCalculatorViewModel.result).thenReturn('12');
 
-    final testableWidget = createTestWidget(Calculator(
-        viewModel: mockedCalculatorViewModel));
+    final testableWidget =
+        createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
     await tester.pumpWidget(testableWidget);
 
-    expect(find.text("11"), findsOneWidget);
+    expect(find.text('12'), findsOneWidget);
   });
 }
 
