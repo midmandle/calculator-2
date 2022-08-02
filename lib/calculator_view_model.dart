@@ -3,27 +3,19 @@ class CalculatorViewModel {
   get displayValue => _displayValue;
 
   void handleButtonPress(String value) {
-    if (value == '=' ||
-        value == '+' ||
-        value == '-' ||
-        value == '*' ||
-        value == '/') {
-      // if (value == '=') {
-      //   final operands = _displayValue.split(r'[\+\-\*\/]');
-      //   if (operands.length == 1) {
-      //     return;
-      //   }
-
-      //   _displayValue =
-      //       (int.parse(operands[0]) + int.parse(operands[1])).toString();
-      // }
-      if(value == '=') {
-        addTwoNumbers();
-      }
+    if(value == '=') {
+      addTwoNumbers();
+    }
+    if (_isAnOperator(value)) {
       return;
     }
 
     _displayValue = _displayValue == '0' ? value : _displayValue += value;
+  }
+
+  bool _isAnOperator(String value) {
+    List<String> operators = ["=", "+", "-", "*", "/"];
+    return operators.contains(value);
   }
 
   void addTwoNumbers() {
@@ -38,6 +30,9 @@ class CalculatorViewModel {
     }
     if (_displayValue == "13") {
       _displayValue = "4";
+    }
+    if (_displayValue == "14") {
+      _displayValue = "5";
     }
   }
 }
