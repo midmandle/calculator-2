@@ -1,4 +1,7 @@
+import 'package:calculator_2/calculator.dart';
+import 'package:calculator_2/calculator_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -101,6 +104,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            ChangeNotifierProvider(
+              create: (context) => CalculatorViewModel(),
+              child: const Calculator(),
             ),
           ],
         ),

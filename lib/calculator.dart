@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'calculator_view_model.dart';
 
 class Calculator extends StatefulWidget {
-  final CalculatorViewModel viewModel;
-
-  const Calculator({Key? key, required this.viewModel}) : super(key: key);
+  const Calculator({Key? key}) : super(key: key);
 
   @override
   State<Calculator> createState() => _CalculatorState();
