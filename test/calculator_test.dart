@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:provider/provider.dart';
 
 import 'calculator_test.mocks.dart';
 
@@ -15,7 +16,7 @@ void main() {
     when(mockedCalculatorViewModel.displayValue).thenReturn('0');
 
     final testableWidget =
-        createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
+        createTestWidget(const Calculator(), mockedCalculatorViewModel);
     await tester.pumpWidget(testableWidget);
 
     var zeroButton = find.widgetWithText(NumberButton, '0');
@@ -36,7 +37,7 @@ void main() {
     when(mockedCalculatorViewModel.displayValue).thenReturn('0');
 
     final testableWidget =
-        createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
+        createTestWidget(const Calculator(), mockedCalculatorViewModel);
     await tester.pumpWidget(testableWidget);
 
     expect(find.text('+'), findsOneWidget);
@@ -52,7 +53,7 @@ void main() {
     when(mockedCalculatorViewModel.displayValue).thenReturn('12');
 
     final testableWidget =
-        createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
+        createTestWidget(const Calculator(), mockedCalculatorViewModel);
     await tester.pumpWidget(testableWidget);
 
     expect(find.text('12'), findsOneWidget);
@@ -64,7 +65,7 @@ void main() {
     when(mockedCalculatorViewModel.displayValue).thenReturn('0');
 
     final testableWidget =
-        createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
+        createTestWidget(const Calculator(), mockedCalculatorViewModel);
     await tester.pumpWidget(testableWidget);
 
     await tester.tap(find.text('1'));
@@ -78,7 +79,7 @@ void main() {
     when(mockedCalculatorViewModel.displayValue).thenReturn('0');
 
     final testableWidget =
-        createTestWidget(Calculator(viewModel: mockedCalculatorViewModel));
+        createTestWidget(const Calculator(), mockedCalculatorViewModel);
     await tester.pumpWidget(testableWidget);
 
     await tester.tap(find.text('-'));
@@ -87,12 +88,14 @@ void main() {
   });
 }
 
-Widget createTestWidget(Widget widget) {
+Widget createTestWidget(Widget widget, MockCalculatorViewModel mockViewModel) {
   return MaterialApp(
-    title: 'Flutter Demo',
-    theme: ThemeData(
-      primarySwatch: Colors.blue,
-    ),
-    home: Scaffold(body: widget),
-  );
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: ChangeNotifierProvider(
+          // ignore: unnecessary_cast
+          create: (context) => mockViewModel as CalculatorViewModel,
+          child: Scaffold(body: widget)));
 }

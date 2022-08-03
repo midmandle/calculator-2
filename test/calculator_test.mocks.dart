@@ -2,6 +2,8 @@
 // in calculator_2/test/calculator_test.dart.
 // Do not manually edit this file.
 
+import 'dart:ui' as _i3;
+
 import 'package:calculator_2/calculator_view_model.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -25,7 +27,30 @@ class MockCalculatorViewModel extends _i1.Mock
   }
 
   @override
+  bool get hasListeners =>
+      (super.noSuchMethod(Invocation.getter(#hasListeners), returnValue: false)
+          as bool);
+  @override
   void handleButtonPress(String? value) =>
       super.noSuchMethod(Invocation.method(#handleButtonPress, [value]),
+          returnValueForMissingStub: null);
+  @override
+  void addTwoNumbers() =>
+      super.noSuchMethod(Invocation.method(#addTwoNumbers, []),
+          returnValueForMissingStub: null);
+  @override
+  void addListener(_i3.VoidCallback? listener) =>
+      super.noSuchMethod(Invocation.method(#addListener, [listener]),
+          returnValueForMissingStub: null);
+  @override
+  void removeListener(_i3.VoidCallback? listener) =>
+      super.noSuchMethod(Invocation.method(#removeListener, [listener]),
+          returnValueForMissingStub: null);
+  @override
+  void dispose() => super.noSuchMethod(Invocation.method(#dispose, []),
+      returnValueForMissingStub: null);
+  @override
+  void notifyListeners() =>
+      super.noSuchMethod(Invocation.method(#notifyListeners, []),
           returnValueForMissingStub: null);
 }
