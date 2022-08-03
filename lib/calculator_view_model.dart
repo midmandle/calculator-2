@@ -1,9 +1,11 @@
-class CalculatorViewModel {
+import 'package:flutter/material.dart';
+
+class CalculatorViewModel extends ChangeNotifier {
   String _displayValue = '0';
   get displayValue => _displayValue;
 
   void handleButtonPress(String value) {
-    if(value == '=') {
+    if (value == '=') {
       addTwoNumbers();
     }
     if (_isAnOperator(value)) {
@@ -11,6 +13,7 @@ class CalculatorViewModel {
     }
 
     _displayValue = _displayValue == '0' ? value : _displayValue += value;
+    notifyListeners();
   }
 
   bool _isAnOperator(String value) {

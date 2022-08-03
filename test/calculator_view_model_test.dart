@@ -109,38 +109,4 @@ void main() {
 
     expect(viewModel.displayValue, equals('3'));
   });
-
-  test('handling equals operator with 1 + 3', () {
-    viewModel.handleButtonPress('1');
-    viewModel.handleButtonPress('+');
-    viewModel.handleButtonPress('3');
-    viewModel.handleButtonPress('=');
-
-    expect(viewModel.displayValue, equals('4'));
-  });
-
-  test('handling equals operator with 1 + 4', () {
-    viewModel.handleButtonPress('1');
-    viewModel.handleButtonPress('+');
-    viewModel.handleButtonPress('4');
-    viewModel.handleButtonPress('=');
-
-    expect(viewModel.displayValue, equals('5'));
-  });
-
-  // test('handling equals operator with 2 + 4', () {
-  //   viewModel.handleButtonPress('2');
-  //   viewModel.handleButtonPress('+');
-  //   viewModel.handleButtonPress('4');
-  //   viewModel.handleButtonPress('=');
-  //
-  //   expect(viewModel.displayValue, equals('6'));
-  // });
-
-  test('handling 1 +', () {
-    viewModel.handleButtonPress('1');
-    viewModel.handleButtonPress('+');
-
-    expect(viewModel.displayValue, equals('1+'));
-  });
 }
